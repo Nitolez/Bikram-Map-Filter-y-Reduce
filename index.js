@@ -76,5 +76,133 @@ const staff = [
 ];
     
 const result3 = staff.map(elemento => {
-    
+    return elemento.name + ' es ' + elemento.role + ' y le gusta ' + elemento.hobbies[0] + ' y ' + elemento.hobbies[1]
 })
+console.log(result3)
+
+
+/* 4: Crea un segundo array result4 a partir del array numbers2 que devuelva solo los impares*/
+
+const numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+let result4 = numbers2.filter(num => num % 2 !== 0)
+
+/* 5: Dado el array foodList2, genera un segundo array result5 que filtre los platos veganos y saque una sentencia como la del ejemplo
+['Que rico Tempeh me voy a comer!',
+'Que rica Tofu burguer me voy a comer!']*/
+
+const foodList2 =[
+{
+  name: 'Tempeh',
+  isVeggie: true
+},
+{
+  name: 'Cheesbacon burguer',
+  isVeggie: false
+},
+{
+  name: 'Tofu burguer',
+  isVeggie: true
+},
+{
+  name: 'Entrecot',
+  isVeggie: false
+}];
+
+let result5 = foodList2.filter(food => food.isVeggie === true).map(food => {
+    if (food.name === 'Tempeh'){
+    return 'Que rico ' + food.name + ' me voy a comer!'
+    } else {
+         return 'Que rica ' + food.name + ' me voy a comer!'
+    }
+})
+console.log(result5)
+
+/* 6: Dado el array **inventory**, devolver un array con los nombres de los elementos que valgan más de 300 euros.  
+[
+    'TV Samsung,',
+    'Viaje a Cancún'
+  ]*/
+
+const inventory = [
+  {
+    name: 'Mobile phone',
+    price: 199
+  },
+  {
+    name: 'TV Samsung',
+    price: 459
+  },
+  {
+    name: 'Viaje a Cancún',
+    price: 600
+  },
+  {
+    name: 'Mascarilla',
+    price: 1
+  }
+];
+
+let result6 = inventory.filter(item => item.price > 300).map(item => {
+    return item.name
+})
+
+console.log(result6)
+
+/* 7: Dado el siguiente array **numeros** [39, 2, 4, 25, 62], obten la multiplicación de todos los elementos del array*/
+
+const numeros3 = [39, 2, 4, 25, 62]
+
+let result7 = numeros3.reduce((acc,numero) => acc * numero)
+console.log(result7)
+
+/*8: Concatena todos los elementos del array con reduce para que devuelva una sola frase
+Resultado--> 'Me llamo XX y quiero sentir la fuerza con javascript'*/
+
+const sentenceElements = [
+  'Me',
+  'llamo',
+  'Antonio',
+  'y',
+  'quiero',
+  'sentir',
+  'la',
+  'fuerza',
+  'con',
+  'javascript'
+];
+
+let result8 = sentenceElements.reduce((acc, palabra) => acc + ' ' + palabra)
+console.log(result8)
+
+/* 9: Obtener el monto total de los elementos que pertenecen a category "code" en el siguiente array.
+Resultado --> 60 */
+const books = [
+  {
+    name: ' JS for dummies',
+    author: 'Emily A. Vander Veer',
+    price: 20,
+    category: 'code'
+  },
+  {
+    name: 'Don Quijote de la Mancha',
+    author: 'Cervantes',
+    price: 14,
+    category: 'novel'
+  },
+  {
+    name: 'Juego de tronos',
+    author: 'George R. Martin',
+    price: 32,
+    category: 'Fantasy'
+  },
+  {
+    name: 'javascript the good parts',
+    author: 'Douglas Crockford',
+    price: 40,
+    category: 'code'
+  }
+];
+
+let result9 = books.filter(book => book.category === 'code').reduce((acc, book) => acc + book.price, 0)
+console.log(result9)
